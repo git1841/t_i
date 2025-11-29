@@ -1,0 +1,7 @@
+curl -X POST "https://bottestlike-zonantenainasecondo2904-nx0foptx.leapcell.dev/like" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "username": "mi.aaaah3",
+       "password": "nantoooo1.",
+       "post_url": "https://www.instagram.com/bugatti/p/DRkG1_6CC6U/"
+     }'

@@ -30,7 +30,7 @@ def follow(username, password, target_username):
             user_id = client.user_id_from_username(target_username)
             print(f"📱 ID trouvé: {user_id}")
         except Exception as e:
-            print(f"⚠️  Erreur lors de la recherche, tentative alternative...")
+            print(f"------------------------------------------⚠️  Erreur lors de la recherche, tentative alternative...  ----------------- ")
             # Méthode de secours
             user_id = client.user_id_from_username(target_username)
             print(f"📱 ID trouvé (méthode alternative): {user_id}")
@@ -39,11 +39,11 @@ def follow(username, password, target_username):
         print("➕ Envoi de la demande de follow...")
         result = client.user_follow(user_id)
         
-        print(f"🎉 Félicitations ! Vous suivez maintenant {target_username} !")
+        print(f" ----------------- 🎉 Félicitations ! Vous suivez maintenant {target_username} ! -----------------")
         return True
         
     except Exception as e:
-        print(f"❌ Erreur: {e}")
+        print(f" ----------------- ❌ Erreur: {e} -----------------")
         return False
 
 # Lancer le follow

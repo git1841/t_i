@@ -84,12 +84,12 @@ while True:
                     f.write(follow_pair + "\n")
                 followed = True
             
-            print("follow de ", compte1 , "a ", compte2, "fini ,  .....")
-            temp = random.randint(45,90)
+            print("follow de ", compte1 , "a ", compte2, " ,  .....")
+            temp = random.randint(80,160)
             print("fin ",temp, "s .....")
             time.sleep(temp)
     
-    temp = random.randint(60,120)
+    temp = random.randint(100,120)
     print("fin ",temp, "s .....")
     time.sleep(temp)
 

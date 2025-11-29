@@ -40,6 +40,7 @@ compte = ["nant.enaina2","nant.enaina3","nant.enaina06","nant.enaina07","nantooo
 "nant.oooo4",
 "nant.oooo6"
 ]
+
 import random
 i = random.randint(0, len(compte)-1)
 
