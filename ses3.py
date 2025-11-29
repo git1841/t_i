@@ -1,12 +1,10 @@
-import time
 import os
 import random
+import time
 from instagrapi import Client
+from instagrapi.utils import generate_device  # important
 
 cl = Client()
-
-# Device stable (important)
-cl.set_device(cl.generate_device("Samsung Galaxy S10"))
 
 pwd = "nantoooo1."
 
@@ -23,14 +21,18 @@ compte = [
     "nant.oooo4","nant.oooo6"
 ]
 
-# Sélection aléatoire d'un compte
+# Sélection aléatoire
 nom = random.choice(compte)
 session_file = f"{nom}.json"
 
 print("Compte sélectionné :", nom)
 print("Connexion en cours...")
 
-# 1. Si session existe, essayer de la charger
+# Génération device
+device = generate_device("Samsung Galaxy S10")
+cl.set_device(device)
+
+# Si session existante
 if os.path.exists(session_file):
     print("➡ Session trouvée :", session_file)
     try:
@@ -39,24 +41,19 @@ if os.path.exists(session_file):
         print("✔ Session chargée avec succès")
     except Exception as e:
         print("⚠ Erreur session :", e)
-        print("➡ Suppression du fichier JSON corrompu")
         os.remove(session_file)
 else:
     print("➡ Aucune session existante")
 
-# 2. Si pas connecté → création nouvelle session
+# Si pas connecté
 if not cl.user_id:
     try:
-        # Anti-ban (429)
-        time.sleep(random.randint(5, 15))
-
+        time.sleep(random.randint(5, 15))  # anti-ban
         cl.login(nom, pwd)
         cl.dump_settings(session_file)
         print("✔ Nouvelle session créée :", session_file)
-
     except Exception as e:
-        print("❌ Erreur lors du login :", e)
-        print("Connexion impossible, Instagram limite ou compte bloqué.")
+        print("❌ Erreur login :", e)
         exit()
 
 print("✔ Fin de la création des sessions")
